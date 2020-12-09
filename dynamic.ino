@@ -35,13 +35,13 @@ void loop() {
   float t = dht.readTemperature();
   // Read temperature as Fahrenheit (isFahrenheit = true)
   float f = dht.readTemperature(true);
-  float mq135=analogRead(A0);
+  float mq135=analogRead(A0); // Reading different types of MQSensors for different types of gases.
   float mq8=analogRead(A1);
   float mq6=analogRead(A2);
   float mq4=analogRead(A3);
   float mq3=analogRead(A4);
   float mq2=analogRead(A5);
-  float vrl135 = (mq135*5)/1023;
+  float vrl135 = (mq135*5)/1023;  //  Converting into voltage
   float vrl8 = (mq8*5)/1023;
   float vrl6 = (mq6*5)/1023;
   float vrl4 = (mq4*5)/1023;
@@ -72,7 +72,7 @@ void loop() {
   float ratio4 = rs4/ro4;
   float ratio3 = rs3/ro3;
   float ratio2 = rs2/ro2;
-  float co2 = 110.47*(pow(ratio135,-2.862));
+  float co2 = 110.47*(pow(ratio135,-2.862));  // Theses values are observed from their datasheets.
   float propane = 652.71*(pow(ratio2,-2.168));
   float alcohol = 0.3934*(pow(ratio3,-1.504));
   float ch4 = 1012.7*(pow(ratio4,-2.786));
